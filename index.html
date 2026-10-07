@@ -1,105 +1,233 @@
-import tkinter as tk
-from tkinter import ttk, messagebox, simpledialog
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام الاختبارات الإلكتروني</title>
+    <style>
+        :root {
+            --primary: #008CBA;
+            --success: #4CAF50;
+            --danger: #f44336;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+        }
 
-# قاعدة بيانات بسيطة لحفظ بيانات الطلاب مؤقتاً في الذاكرة
-students_database = []
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-def start_exam():
-    name = entry_name.get().strip()
-    department = combo_dept.get().strip()
-    
-    if not name or not department:
-        messagebox.showwarning("تنبيه", "الرجاء إدخال الاسم الثلاثي واختيار القسم أولاً!")
-        return
+        .container {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: var(--text-main);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .btn-exam {
+            background-color: var(--primary);
+        }
+        .btn-exam:hover { background-color: #007399; }
+
+        .btn-admin {
+            background-color: var(--danger);
+            margin-top: 20px;
+        }
+        .btn-admin:hover { background-color: #d32f2f; }
+
+        .btn-back {
+            background-color: #757575;
+            margin-bottom: 20px;
+        }
+        .btn-back:hover { background-color: #616161; }
+
+        .student-btn {
+            background-color: var(--success);
+            margin-bottom: 10px;
+            text-align: right;
+            padding: 15px 20px;
+            font-size: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .student-btn:hover { background-color: #388E3C; }
+
+        .divider {
+            height: 1px;
+            background-color: #eee;
+            margin: 25px 0;
+        }
+
+        /* إخفاء قسم الإدارة افتراضياً */
+        #admin-section {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الواجهة الرئيسية للطالب -->
+    <div class="container" id="student-section">
+        <h2>نظام الاختبارات الإلكتروني</h2>
         
-    # حفظ بيانات الطالب للاستعلام عنها لاحقاً في لوحة الإدارة
-    students_database.append({"name": name, "department": department})
-    
-    messagebox.showinfo("نجاح", f"مرحباً {name} من قسم {department}!\nتم تسجيلك كطالب مجتهد وجاري فتح الاختبار النهائي...")
-    
-    # مسح الحقول بعد التسجيل لتجهيزها لطالب آخر
-    entry_name.delete(0, tk.END)
-    combo_dept.set('')
-    
-    # هنا يمكنك إضافة كود انتقال الطالب لنافذة الأسئلة الخاصة بالاختبار الفعلي
+        <div class="form-group">
+            <label for="studentName">الاسم الثلاثي:</label>
+            <input type="text" id="studentName" placeholder="أدخل اسمك الثلاثي هنا..." required>
+        </div>
 
-def show_student_details(student):
-    # دالة تظهر عند ضغط الأدمن على زر الطالب لمعرفة تفاصيله
-    messagebox.showinfo(
-        "بيانات الطالب", 
-        f"الاسم الثلاثي: {student['name']}\nالقسم: {student['department']}\nتقييم النظام: مستعد للاختبار ومجتهد!"
-    )
+        <div class="form-group">
+            <label for="department">القسم / التخصص:</label>
+            <select id="department" required>
+                <option value="" disabled selected>اختر قسمك...</option>
+                <option value="الذكاء الاصطناعي">الذكاء الاصطناعي</option>
+                <option value="الأمن السيبراني">الأمن السيبراني</option>
+                <option value="هندسة البرمجيات">هندسة البرمجيات</option>
+                <option value="علوم الحاسوب">علوم الحاسوب</option>
+                <option value="تقنية المعلومات">تقنية المعلومات</option>
+            </select>
+        </div>
 
-def open_admin_panel():
-    # حماية لوحة الإدارة بكلمة مرور لمنع الطلاب من الدخول
-    password = simpledialog.askstring("حماية", "أدخل كلمة مرور المشرف:", show='*')
-    
-    # كلمة المرور الافتراضية هي admin123
-    if password != "admin123":
-        if password is not None: # لتجاهل الإشعار إذا ضغط المستخدم على "إلغاء"
-            messagebox.showerror("خطأ", "كلمة المرور غير صحيحة، الوصول مرفوض!")
-        return
+        <button class="btn-exam" onclick="startExam()">تسجيل وبدء الاختبار النهائي</button>
+
+        <div class="divider"></div>
+
+        <button class="btn-admin" onclick="openAdmin()">دخول الإدارة (للمشرفين فقط)</button>
+    </div>
+
+    <!-- واجهة الإدارة -->
+    <div class="container" id="admin-section">
+        <h2>لوحة الإدارة - بيانات الطلاب</h2>
+        <button class="btn-back" onclick="closeAdmin()">رجوع للرئيسية</button>
         
-    # إنشاء نافذة الإدارة الخاصة بالأدمن
-    admin_window = tk.Toplevel(root)
-    admin_window.title("لوحة الإدارة - بيانات الطلاب")
-    admin_window.geometry("500x600")
-    admin_window.configure(bg="#f0f0f0")
-    
-    tk.Label(admin_window, text="قائمة الطلاب المتقدمين للاختبار", font=("Arial", 16, "bold"), bg="#f0f0f0").pack(pady=20)
-    
-    if not students_database:
-        tk.Label(admin_window, text="لا يوجد طلاب مسجلين في الاختبار حتى الآن.", font=("Arial", 12), bg="#f0f0f0").pack(pady=10)
-        return
+        <div id="students-list">
+            <!-- سيتم إضافة أزرار الطلاب هنا برمجياً -->
+        </div>
+    </div>
 
-    # توليد زر مستقل لكل طالب مسجل ببياناته
-    for student in students_database:
-        button_text = f"الطالب: {student['name']} | التخصص: {student['department']}"
-        btn = tk.Button(
-            admin_window, 
-            text=button_text, 
-            font=("Arial", 12, "bold"), 
-            bg="#4CAF50", 
-            fg="white",
-            cursor="hand2",
-            command=lambda s=student: show_student_details(s)
-        )
-        btn.pack(fill=tk.X, padx=20, pady=5, ipady=8)
+    <script>
+        // مصفوفة لحفظ بيانات الطلاب مؤقتاً
+        let studentsDatabase = [];
 
-# --- إعداد النافذة الرئيسية ---
-root = tk.Tk()
-root.title("الواجهة الرئيسية للنظام")
-root.geometry("600x550")
-root.configure(bg="#ffffff")
+        // دالة تسجيل الطالب وبدء الاختبار
+        function startExam() {
+            const nameInput = document.getElementById('studentName');
+            const deptInput = document.getElementById('department');
+            
+            const name = nameInput.value.trim();
+            const dept = deptInput.value;
 
-# العنوان الرئيسي
-title_label = tk.Label(root, text="نظام الاختبارات الإلكتروني", font=("Arial", 20, "bold"), bg="#ffffff", fg="#333333")
-title_label.pack(pady=20)
+            if (!name || !dept) {
+                alert("تنبيه: الرجاء إدخال الاسم الثلاثي واختيار القسم أولاً!");
+                return;
+            }
 
-# إطار مخصص لبيانات الطالب والاختبار
-student_frame = tk.LabelFrame(root, text="بيانات الطالب (للاختبار النهائي)", font=("Arial", 12, "bold"), bg="#ffffff", padx=20, pady=20)
-student_frame.pack(pady=10, padx=30, fill=tk.X)
+            // حفظ بيانات الطالب في المصفوفة
+            studentsDatabase.push({ name: name, department: dept });
 
-# حقل الاسم
-tk.Label(student_frame, text=":الاسم الثلاثي", font=("Arial", 12), bg="#ffffff").pack(anchor="e")
-entry_name = tk.Entry(student_frame, font=("Arial", 12), justify="right", bg="#f9f9f9")
-entry_name.pack(fill=tk.X, pady=(0, 15), ipady=5)
+            alert(`مرحباً بك يا ${name} من قسم ${dept}!\nتم تسجيلك كطالب مجتهد، سيتم تحويلك للاختبار الآن...`);
 
-# حقل القسم (قائمة منسدلة للاختيار السريع)
-tk.Label(student_frame, text=":القسم / التخصص", font=("Arial", 12), bg="#ffffff").pack(anchor="e")
-departments = ["الذكاء الاصطناعي", "الأمن السيبراني", "هندسة البرمجيات", "علوم الحاسوب", "تقنية المعلومات"]
-combo_dept = ttk.Combobox(student_frame, values=departments, font=("Arial", 12), justify="right", state="readonly")
-combo_dept.pack(fill=tk.X, pady=(0, 20), ipady=5)
+            // تفريغ الحقول لتكون جاهزة لطالب آخر
+            nameInput.value = '';
+            deptInput.value = '';
+        }
 
-# زر الاختبار النهائي للطلاب
-btn_exam = tk.Button(student_frame, text="تسجيل وبدء الاختبار النهائي", font=("Arial", 14, "bold"), bg="#008CBA", fg="white", cursor="hand2", command=start_exam)
-btn_exam.pack(fill=tk.X, ipady=8)
+        // دالة فتح لوحة الإدارة
+        function openAdmin() {
+            const password = prompt("الرجاء إدخال كلمة مرور المشرف:");
+            
+            // كلمة المرور الافتراضية هي admin123
+            if (password === "admin123") {
+                document.getElementById('student-section').style.display = 'none';
+                document.getElementById('admin-section').style.display = 'block';
+                renderStudents();
+            } else if (password !== null) { // إذا لم يضغط على "إلغاء"
+                alert("خطأ: كلمة المرور غير صحيحة. الوصول مرفوض!");
+            }
+        }
 
-# فاصل بصري
-ttk.Separator(root, orient='horizontal').pack(fill=tk.X, padx=30, pady=20)
+        // دالة إغلاق لوحة الإدارة والعودة للرئيسية
+        function closeAdmin() {
+            document.getElementById('admin-section').style.display = 'none';
+            document.getElementById('student-section').style.display = 'block';
+        }
 
-# زر الإدارة (مخفي الدلالة ومحمي)
-btn_admin = tk.Button(root, text="دخول الإدارة (للمشرفين فقط)", font=("Arial", 12, "bold"), bg="#f44336", fg="white", cursor="hand2", command=open_admin_panel)
-btn_admin.pack(pady=10, ipady=8, padx=120, fill=tk.X)
+        // دالة إنشاء أزرار الطلاب في لوحة الإدارة
+        function renderStudents() {
+            const listContainer = document.getElementById('students-list');
+            listContainer.innerHTML = ''; // مسح المحتوى القديم
 
-root.mainloop()
+            if (studentsDatabase.length === 0) {
+                listContainer.innerHTML = '<p style="color: #666;">لا يوجد طلاب مسجلين في الاختبار حتى الآن.</p>';
+                return;
+            }
+
+            // إنشاء زر لكل طالب في المصفوفة
+            studentsDatabase.forEach((student, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'student-btn';
+                btn.innerHTML = `🎓 الطالب: ${student.name} <br> 📚 التخصص: ${student.department}`;
+                
+                // حدث عند الضغط على زر الطالب (لمعرفة تفاصيله)
+                btn.onclick = function() {
+                    alert(`تفاصيل الطالب:\n\nالاسم: ${student.name}\nالقسم: ${student.department}\nتقييم النظام: مستعد للاختبار ومجتهد!`);
+                };
+
+                listContainer.appendChild(btn);
+            });
+        }
+    </script>
+</body>
+</html>
