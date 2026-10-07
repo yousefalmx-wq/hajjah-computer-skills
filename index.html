@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<Y!DOCTPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -571,7 +571,7 @@
                 <!-- 1. شاشة البداية وكتابة الاسم -->
                 <div id="examStartBox" class="exam-card exam-start-box">
                     <h2 style="color: var(--royal-blue); font-family: 'Amiri', serif; font-size: 1.6rem;">👑 الاختبار النهائي الشامل لمهارات الحاسوب</h2>
-                    <p style="color: #475569; margin-top: 6px; font-size: 0.92rem;">يتكون الاختبار من <b>50 سؤالاً</b> (اختيار من متعدد وصح وخطأ). درجة كل سؤال 2، والدرجة الكلية من 100.</p>
+                    <p style="color: #475569; margin-top: 6px; font-size: 0.92rem;">يتكون الاختبار من <b>10 أسئلة</b>. الدرجة الكلية من 100.</p>
                     <br>
                     <label style="font-weight: 700; color: var(--royal-dark); font-size: 1rem;">الرجاء كتابة اسمك الثلاثي لتبدأ الاختبار:</label><br>
                     <input type="text" id="studentNameInput" class="student-input" placeholder="اكتب اسمك الثلاثي هنا..." autocomplete="off">
@@ -582,8 +582,8 @@
                 <!-- 2. مربع السؤال التفاعلي التلقائي -->
                 <div id="examQuestionBox" class="exam-card" style="display: none;">
                     <div class="exam-header-info">
-                        <span id="questionProgress">السؤال 1 من 50</span>
-                        <span>درجة السؤال: 2</span>
+                        <span id="questionProgress">السؤال 1 من 10</span>
+                        <span>درجة السؤال: 10</span>
                     </div>
                     <div class="exam-question-text" id="questionText">
                         <!-- نص السؤال هنا -->
@@ -627,7 +627,7 @@
     <div class="sidebar">
         <h2>👑 فهرس المهارات</h2>
         <div id="buttonsList"></div>
-        <button class="lesson-btn exam-sidebar-btn" onclick="showExamInterface()">👑 اختبار نهائي (50 سؤال)</button>
+        <button class="lesson-btn exam-sidebar-btn" onclick="showExamInterface()">👑 اختبار نهائي (10 أسئلة)</button>
     </div>
 
     <script>
@@ -664,7 +664,7 @@
                     <b>المهارات الاحترافية للتحديد المتعدد:</b>
                     <ol class="step-list">
                     <li><b>التحديد المتصل الشامل (Shift):</b> اختر الملف الأول، ثم اضغط باستمرار على مفتاح <code>Shift</code> وانقر على الملف رقم 20؛ سيتم تحديد جميع الملفات العشرين المتجاورة دفعة واحدة.</li>
-                    <li><b>التحديد المتباعد والانتقائي (Ctrl):</b> اضغط باستمرار على زر <code>Ctrl</code> وانقر بالفأرة على الصور أو الملفات التي تريدها فقط وتخطَّ الملفات غير المرغوبة.</li>
+                    <li><b>التحديد المتباعد والانتقائي (Ctrl):</b> اضغط باستمرار على زر <code>Ctrl</code> وانقر بالفأرة على الصور أو الملفات التي تريدها فقط وتخطَّ الملفات غير المرغوبة.</li>
                     <li><b>التراجُع الحارس (Ctrl + Z):</b> إذا حذفت فقرة كاملة في بحثك بغير قصد أو خربت تنسيق جدول، لا تقلق! اضغط فوراً على <code>Ctrl + Z</code> وسيعود كل شيء كما كان قبل الخطأ تماماً.</li>
                     </ol>`
             },
@@ -733,204 +733,204 @@
             },
             "lesson7": {
                 title: "7. إكسل: الدوال الحسابية الأساسية",
-                code: "=SUM(A1:A10)     : دالة الجمع التلقائي لحساب المجموع\n=AVERAGE(A1:A10) : دالة المتوسط الحسابي\n=MAX(A1:A10)     : دالة استخراج أعلى قيمة\n=MIN(A1:A10)     : دالة استخراج أقل قيمة\n=COUNT(A1:A10)   : دالة عد الخلايا الرقمية",
-                explanation: `<h3>📜 الشرح الشامل للدوال الحسابية في Excel:</h3>
-                    <b>قوة الحسابات الآلية الفورية:</b><br>
-                    الدوال هي صيغ حاسوبية برمجية جاهزة تبسط الحسابات المعقدة وتضمن عدم وقوع أي خطأ بشري.
+                code: "=SUM()     : جمع مجموعة من الأرقام\n=AVERAGE() : حساب المتوسط الحسابي (المعدل)\n=MAX()     : إيجاد أكبر قيمة في التحديد\n=MIN()     : إيجاد أصغر قيمة في التحديد",
+                explanation: `<h3>📜 الشرح المكثف والعميق للدوال الحسابية في Excel:</h3>
+                    <b>القوة الحقيقية لمعالجة الأرقام:</b><br>
+                    الدوال (Functions) هي معادلات مبرمجة مسبقاً داخل إكسل لتنفيذ عمليات حسابية معقدة في ثوانٍ معدودة، بدلاً من إمساك الآلة الحاسبة وجمع 1000 رقم يدوياً.
                     <div class="real-life-box">💡 مثال من الواقع الذي نعيشه:<br>
-                    لو كان لديك كشف لـ 500 طالب وتريد حساب المجموع والمتوسط الحسابي لكل طالب يدوياً بالآلة الحاسبة، ستستغرق يوماً كاملاً وقد تخطئ في جمع الأرقام. أما باستخدام دالة <code>=SUM</code> ودالة <code>=AVERAGE</code> في إكسل، يمكنك حساب النتيجة لجميع الطلاب بضغطة زر واحدة وفي جزء من الثانية!</div>
-                    <b>الشرح التفصيلي للدوال الخمس الأساسية:</b>
+                    تخيل أن لديك كشف درجات لـ 500 طالب، وتريد معرفة "مجموع" درجات الطالب الأول، و"متوسط" درجاته. بدلاً من الحساب اليدوي، تقوم بكتابة الدالة <code>=SUM()</code> وتحديد الخلايا، وسيعطيك إكسل الناتج الدقيق فوراً. ثم تسحب الدالة للأسفل لتتطبق على جميع الطلاب!</div>
+                    <b>القواعد الذهبية لكتابة الدوال:</b>
                     <ol class="step-list">
-                    <li><b>القاعدة الذهبية للبدء:</b> يجب أن تبدأ أي معادلة أو دالة بكتبة علامة <code>=</code> أولاً، وإلا سيتعامل معها إكسل كنص عادي ميت.</li>
-                    <li><b>دالة الجمع =SUM:</b> تكتب <code>=SUM(B2:E2)</code> لحساب مجموع الخلايا من B2 إلى E2.</li>
-                    <li><b>دالة المعدل =AVERAGE:</b> تكتب <code>=AVERAGE(B2:E2)</code> لحساب معدل درجات المواد.</li>
-                    <li><b>سحر التعبئة التلقائية (AutoFill):</b> اكتب الدالة للطالب الأول فقط، ثم ضع مؤشر الماوس على الزاوية اليسرى السفلية للخلية حتى يتحول لرمز زائد أسود صغير <code>+</code> واضغط مرتين بالماوس ليتم تطبيق المعادلة وحساب درجات جميع باقي الطلاب فوراً!</li>
+                    <li><b>علامة اليساوي (=) هي المفتاح:</b> لا يفهم إكسل أنك تريد القيام بعملية حسابية إلا إذا بدأت الخلية بكتابة علامة <code>=</code>. بدونها، سيعتبر ما تكتبه مجرد نص عادي.</li>
+                    <li><b>تحديد النطاق (Range):</b> نستخدم النقطتين الرأسيتين <code>:</code> لتحديد نطاق من الخلايا. مثلاً النطاق <code>A1:A10</code> يعني "من الخلية A1 وحتى الخلية A10".</li>
+                    <li><b>دالة الجمع التلقائي (AutoSum):</b> لتسريع العمل، حدد الخلية الفارغة أسفل الأرقام التي تريد جمعها، واضغط على اختصار <code>Alt + =</code> من لوحة المفاتيح، وسيقوم إكسل بجمعها تلقائياً.</li>
                     </ol>`
             },
             "lesson8": {
-                title: "8. إكسل: الدالة الشرطية IF",
-                code: "صيغة الدالة الشائعة:\n=IF(Logical_Test, Value_if_true, Value_if_false)\n\nمثال تقدير الناجح والراسب:\n=IF(B2>=50, \"ناجح\", \"راسب\")",
-                explanation: `<h3>📜 الشرح المكثف والعميق لدالة اتخاذ القرار =IF:</h3>
-                    <b>الذكاء البرمجي داخل برامج الجداول:</b><br>
-                    دالة <code>IF</code> تمنح إكسل قدرة على التفكير واختبار الشروط لاتخاذ القرار المناسب آلياً.
+                title: "8. إكسل: التنسيق الشرطي والدالة IF",
+                code: "=IF(الشرط, القيمة_إذا_تحقق, القيمة_إذا_لم_يتحقق)\nمثال: =IF(A2>=50, \"ناجح\", \"راسب\")\nالتنسيق الشرطي (Conditional Formatting): تلوين الخلايا حسب محتواها",
+                explanation: `<h3>📜 الشرح المفصل للدوال المنطقية والتحليل في Excel:</h3>
+                    <b>صناعة القرارات الذكية بناءً على الشروط:</b><br>
+                    ماذا لو أردت أن يقوم إكسل بتصنيف البيانات نيابة عنك؟ هنا يأتي دور الدوال المنطقية والتنسيقات الشرطية لتجعل جدولك "ناطقاً" و"تفاعلياً".
                     <div class="real-life-box">💡 مثال من الواقع الذي نعيشه:<br>
-                    مثل الشرط المعتمد في الشهادة الجامعية؛ يفحص النظام درجة الطالب: إذا كانت 50 أو أكثر يكتب تلقائياً كلمة 'ناجح' باللون الأخضر، وإذا كانت أقل من 50 يكتب 'راسب'. دون أن تضطر لقراءة درجة كل طالب بنفسك لكتابة النتيجة.</div>
-                    <b>الأجزاء الثلاثة لدالة IF الشرطية:</b>
+                    في كشف الدرجات، تريد أن يُكتب كلمة "ناجح" أمام الطالب الذي درجته 50 فما فوق، وكلمة "راسب" إذا كانت أقل. الدالة <code>=IF()</code> تقوم بهذا الفحص التلقائي. ولزيادة الوضوح، تستخدم "التنسيق الشرطي" لتلوين خلية الطالب الراسب باللون الأحمر لتلفت انتباهك فوراً.</div>
+                    <b>خطوات استخدام الشروط والتنسيق:</b>
                     <ol class="step-list">
-                    <li><b>الشرط (Logical Test):</b> هو المعيار الذي يتم فترته مثل <code>B2 >= 50</code> (هل درجة الطالب في الخلية B2 أكبر من أو تساوي 50؟).</li>
-                    <li><b>قيمة التحقق (Value if true):</b> الكلمة التي تُكتب عندما يتحقق الشرط مثل <code>"ناجح"</code>.</li>
-                    <li><b>قيمة عدم التحقق (Value if false):</b> الكلمة التي تُكتب عند عدم تحقق الشرط مثل <code>"راسب"</code>.</li>
-                    <li><i>ملاحظة هامة:</i> النصوص داخل معامَلات الدوال يجب وضعها بين علامتي تنصيص مزدوجة <code>" "</code>.</li>
+                    <li><b>تركيب دالة IF:</b> تتكون من 3 أجزاء تفصل بينها فاصلة: (الشرط المراد فحصه، ماذا نكتب إذا تحقق الشرط، ماذا نكتب إذا لم يتحقق).</li>
+                    <li><b>التعبئة التلقائية (مقبض التعبئة):</b> بعد كتابة الدالة لأول طالب، قم بسحب المربع الأخضر الصغير أسفل يسار الخلية إلى الأسفل ليتم تطبيق نفس الدالة على باقي الطلاب.</li>
+                    <li><b>تطبيق التنسيق الشرطي:</b> حدد عمود الدرجات ➔ من شريط <code>الصفحة الرئيسية</code> اختر <code>تنسيق شرطي</code> ➔ <code>قواعد تمييز الخلايا</code> ➔ <code>أصغر من</code> ➔ واكتب 50 واختر التعبئة باللون الأحمر.</li>
                     </ol>`
             },
             "lesson9": {
-                title: "9. إكسل: التنسيق الشرطي والمخططات",
-                code: "التنسيق الشرطي : الصفحة الرئيسية -> التنسيق الشرطي (Conditional Formatting)\nإدراج رسم بياني: إدراج (Insert) -> المخططات الموصى بها (Recommended Charts)\nمخطط الأعمدة   : Column / Bar Chart",
-                explanation: `<h3>📜 الشرح المكثف للتنسيق الشرطي والرسم البياني:</h3>
-                    <b>التحليل البصري والرؤية البيانية السريعة:</b><br>
-                    تحويل الأرقام الميتة الجافة إلى ألوان ورسومات بيانية مرئية يسهل فهمها وتحليلها فوراً.
+                title: "9. باوربوينت: تصميم العروض والشرائح",
+                code: "Ctrl + M     : إدراج شريحة جديدة (New Slide)\nF5           : بدء عرض الشرائح من البداية\nShift + F5   : بدء العرض من الشريحة الحالية\nEsc          : الخروج من وضع العرض",
+                explanation: `<h3>📜 الشرح المكثف لتصميم العروض التقديمية في PowerPoint:</h3>
+                    <b>فن الإقناع والتأثير البصري:</b><br>
+                    برنامج الباوربوينت ليس مكاناً لكتابة نصوص طويلة، بل هو أداة بصرية تهدف إلى لفت انتباه الجمهور وتلخيص الأفكار أثناء إلقائك للمحاضرة أو مناقشة البحث.
                     <div class="real-life-box">💡 مثال من الواقع الذي نعيشه:<br>
-                    مثل إشارات المرور تماماً؛ الأحمر للتوقف والتنبيه، والأخضر للسماح بالمرور. في إكسل يلون التنسيق الشرطي درجات الراسبين تلقائياً باللون الأحمر المتوهج ليلفت انتباه الدكتور بنظرة واحدة خاطفة دون الحاجة لقراءة مئات الأرقام.</div>
-                    <b>خطوات تطبيق التنسيق والرسم البياني:</b>
+                    تخيل أنك تقف أمام الجمهور لشرح مشروع تخرجك؛ إذا وضعت 20 سطراً في الشريحة، سيقوم الجمهور بقراءتها وتجاهلك تماماً! أما إذا وضعت صورة معبرة و 3 نقاط رئيسية فقط، سيقرأ الجمهور النقاط ثم يركز معك لتستمع لشرحك وتفصيلك.</div>
+                    <b>أساسيات العرض الجذاب:</b>
                     <ol class="step-list">
-                    <li><b>التنسيق الشرطي (Conditional Formatting):</b> حدد عمود الدرجات ➔ اضغط على <code>تنسيق شرطي</code> ➔ اختر <code>قواعد تمييز الخلايا</code> ➔ اختر <code>أصغر من (Less Than)</code> ➔ اكتب 50 واختر التعبئة باللون الأحمر.</li>
-                    <li><b>إنشاء المخطط البياني (Chart):</b> حدد أسماء الطلاب مع المجموع ➔ اذهب لقائمة <code>إدراج (Insert)</code> ➔ اختر رسم بياني شريطي <code>Column Chart</code>. سيتشكل رسم بياني يعرض مقارنة ارتفاع درجات الطلاب بوضوح تام.</li>
+                    <li><b>قاعدة 6×6:</b> لا تضع أكثر من 6 أسطر في الشريحة، ولا يزيد السطر عن 6 كلمات. اعتمد على الرؤوس والأقلام والصور المعبرة.</li>
+                    <li><b>اختيار التصميم (Design):</b> من تبويب <code>تصميم (Design)</code>، اختر نسقاً مناسباً. للأبحاث العلمية يفضل الألوان الهادئة (مثل الأزرق الملكي والأبيض)، وتجنب الألوان الفاقعة المزعجة للعين.</li>
+                    <li><b>أحجام الخطوط:</b> يجب أن يكون الخط كبيراً جداً ليتمكن الجالس في آخر القاعة من قراءته. عنوان الشريحة لا يقل عن حجم <code>40</code>، والنصوص الفرعية لا تقل عن <code>28</code>.</li>
                     </ol>`
             },
             "lesson10": {
-                title: "10. باوربوينت: تصميم الشرائح",
-                code: "Ctrl + M     : إضافة شرائح جديدة (New Slide)\nF5           : بدء العرض التقديمي من البداية (Start Slideshow)\nShift + F5   : بدء العرض من الشريحة الحالية\nEsc          : الخروج من وضع عرض الشرائح",
-                explanation: `<h3>📜 الشرح المفصل والمكثف لتصميم العروض في PowerPoint:</h3>
-                    <b>فن العرض التقديمي وإقناع الجمهور (Presentation Skills):</b><br>
-                    برنامج باوربوينت مصمم لعرض الأفكار والمشاريع الأكاديمية أمام اللجان والدكاترة بأسلوب مشوق ومختصر.
+                title: "10. باوربوينت: الانتقالات والحركات",
+                code: "الانتقالات (Transitions) : تأثير الحركة بين شريحة وأخرى\nالحركات (Animations)   : تأثير دخول/خروج العناصر (النصوص/الصور) داخل نفس الشريحة\nجزء الحركة (Animation Pane): نافذة لترتيب وتعديل وقت الحركات",
+                explanation: `<h3>📜 الشرح المفصل لإضافة الحيوية للعروض (الانتقالات والحركات):</h3>
+                    <b>جعل العرض التقديمي ينبض بالحياة:</b><br>
+                    الحركة المدروسة في الباوربوينت تجعل عرضك احترافياً وتشد انتباه المشاهد، ولكن الحركة المبالغ فيها تحوله إلى ما يشبه أفلام الكرتون وتشتت الانتباه عن المحتوى العلمي!
                     <div class="real-life-box">💡 مثال من الواقع الذي نعيشه:<br>
-                    الشريحة (Slide) ليست كتاباً أو المقال النصي؛ تخيلها مثل 'اللوحة الإرشادية في القاعة' أو رؤوس الأقلام التي تشير إليها بيدك أثناء الشرح. الشرائح الناجحة تحتوي على نقاط مفتاحية قصيرة وتساندك أثناء الحديث والالقاء أمام الجمهور.</div>
-                    <b>قواعد العرض الأكاديمي الناجح:</b>
+                    مثل المخرج التلفزيوني؛ الانتقال (Transition) هو كيفية تغير الكاميرا من المشهد الأول إلى المشهد الثاني. أما الحركة (Animation) فهي كيفية دخول الممثل أو النص إلى داخل المسرح نفسه! استخدامها بذكاء يجعلك تتحكم في متى يرى الجمهور كل معلومة.</div>
+                    <b>الفرق الجوهري وكيفية التطبيق:</b>
                     <ol class="step-list">
-                    <li><b>قاعدة 6×6 الشهيرة:</b> تجنب حشو الشريحة بالنصوص! احرص ألا تزيد الشريحة عن 6 أسطر، ولا يزيد السطر الواحد عن 6 كلمات.</li>
-                    <li><b>التباين في الألوان:</b> استخدم نصوصاً غامقة على خلفية فاتحة أو نصوصاً فاتحة جداً على خلفية داكنة لضمان وضوح الكلمات عند العرض عبر جهاز البروجكتور (Projector) في القاعة.</li>
-                    <li><b>اختصارات التشغيل السريعة:</b> اضغط <code>F5</code> لبدء العرض التقديمي على كامل الشاشة من الشريحة الأولى، أو اضغط <code>Shift + F5</code> لبدء العرض مباشرة من الشريحة الحالية التي تعمل عليها.</li>
-                    </ol>`
-            },
-            "lesson11": {
-                title: "11. باوربوينت: الحركات والانتقالات",
-                code: "الانتقالات (Transitions) : الحركة بين شريحة وأخرى\nالحركات (Animations)    : الحركة للعناصر والأشكال داخل الشريحة نفسها\nخيارات التأثير          : Effect Options لتعديل اتجاه الحركة",
-                explanation: `<h3>📜 الشرح الشامل والمكثف للمؤثرات والحركات في PowerPoint:</h3>
-                    <b>إضافة الحيوية والتفاعل البصري للجمهور:</b><br>
-                    استخدام المؤثرات الحركية بذكاء يجذب انتباه الدكتور والحاضرين ويمنع تسرب الملل أثناء المناقشة.
-                    <div class="real-life-box">💡 مثال من الواقع الذي نعيشه:<br>
-                    مثل الإعلانات التلفزيونية والأخبار؛ عندما تظهر نقاط البحث نقطة تلو الأخرى مع كلامك بالترتيب، تضمن أن الجمهور يركز مع الكلمة التي تشرحها حالياً ولا ينشغل بقراءة بقية النقاط المستقبلية في الشريحة!</div>
-                    <b>التفرقة الدقيقة بين الانتقالات والحركات:</b>
-                    <ol class="step-list">
-                    <li><b>انتقالات الشرائح (Transitions):</b> هي المؤثر البصري الذي يظهر أثناء الانتقال من الشريحة رقم 1 إلى الشريحة رقم 2. يُفضل استخدام حركات هادئة مثل <code>تلاشي (Fade)</code> أو <code>تضئيل</code>.</li>
-                    <li><b>حركات العناصر (Animations):</b> هي التأثير الذي يطبق على كلمة أو صورة داخل الشريحة نفسها لتدخل وتظهر بعد انقضاء زمن معين.</li>
-                    <li><b>خيارات التأثير (Effect Options):</b> تسمح لك بتحديد اتجاه حركة الكلمات (مثلاً: دخول النص من اليمين إلى اليسار أو من الأسفل إلى الأعلى).</li>
-                    </ol>`
-            },
-            "lesson12": {
-                title: "12. البحث الأكاديمي والإنترنت",
-                code: "البحث عن ملفات PDF مباشرة  : filetype:pdf اسم_البحث\nالبحث في محرك البحث العلمي: scholar.google.com\nحفظ الملف كـ PDF من Word   : F12 -> اختيار النوع PDF",
-                explanation: `<h3>📜 الشرح المكثف لمهارات البحث العلمي المحترف وأمن الملفات:</h3>
-                    <b>الوصول للمراجع والمصادر العلمية المعتمدة:</b><br>
-                    البحث العشوائي في جوجل يعطيك نتائج غير دقيقة ومنشورات غير موثوقة. تعلم مهارات البحث الأكاديمي يوفر عليك مئات الساعات في إعداد الأبحاث.
-                    <div class="real-life-box">💡 مثال من الواقع الذي نعيشه:<br>
-                    تخيل زيارة المكتبة المركزية بالجامعة؛ بدلاً من تقليب كافة الرفوف العشوائية، تذهب مباشرة للرف المخصص للأبحاث المحكّمة. كذلك استخدام أوامر جوجل المتقدمة يأخذك مباشرة للملفات الموثوقة المعتمدة.</div>
-                    <b>أدوات البحث العلمي الاحترافي:</b>
-                    <ol class="step-list">
-                    <li><b>أمر البحث المباشر عن الملفات <code>filetype:pdf</code>:</b> للحصول على كتاب أو بحث جاهز بصيغة PDF مباشرة، اكتب في مربع بحث جوجل:<br>
-                    <code>filetype:pdf مهارات الحاسوب وتطبيقاته</code></li>
-                    <li><b>محرك الباحث العلمي (Google Scholar):</b> عبر الرابط <code>scholar.google.com</code> يمكنك الوصول لأوراق بحثية وأطروحات دكتوراه معتمدة ورسمية مع إمكانية اقتباس المراجع بسهولة.</li>
-                    <li><b>حماية الملفات والتصدير المباشر:</b> قبل إرسال البحث للدكتور، اضغط على <code>F12</code> واختر حفظ بنوع <code>PDF</code> لحماية البحث من التعديل وضمان ظهور الخطوط والتنسيقات بشكل صحيح على أي جهاز.</li>
+                    <li><b>تطبيق الانتقالات:</b> حدد الشريحة ➔ اذهب لتبويب <code>الانتقالات (Transitions)</code> ➔ اختر انتقالاً هادئاً مثل <code>تلاشي (Fade)</code> أو <code>دفع (Push)</code>.</li>
+                    <li><b>تطبيق الحركات على العناصر:</b> حدد النص أو الصورة ➔ اذهب لتبويب <code>حركات (Animations)</code> ➔ اختر حركة مثل <code>ظهور (Appear)</code> أو <code>تحرك للداخل (Fly In)</code>.</li>
+                    <li><b>ترتيب تسلسل الأفكار:</b> من خلال تطبيق حركة "ظهور" على النقاط، يمكنك عرض النقطة الأولى وشرحها، ثم بضغطة زر تظهر النقطة الثانية، مما يمنع الجمهور من استباق قراءة بقية النقاط وتشتت انتباههم عنك.</li>
                     </ol>`
             }
         };
 
-        // ================== قاعدة أسئلة الاختبار النهائي (50 سؤال) ==================
-        const examQuestions = [
-            { q: "أي من الاختصارات التالية يُستخدم لإنشاء مجلد جديد في نظام Windows؟", opts: ["Ctrl + N", "Ctrl + Shift + N", "Alt + N", "Shift + F10"], correct: 1 },
-            { q: "ضغط المفاتيح Shift + Delete يقوم بحذف الملف نهائياً دون إرساله لسلة المهملات.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "الامتداد الخاص بملفات المستندات لبرنامج مايكروسوفت وورد هو:", opts: [".xlsx", ".pptx", ".docx", ".pdf"], correct: 2 },
-            { q: "المفتاح F2 يُستخدم لإعادة تسمية الملف أو المجلد المحدد في نظام التشغيل.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "الاختصار المسؤول عن التراجع عن آخر عمل تم القيام به (Undo) هو:", opts: ["Ctrl + C", "Ctrl + Z", "Ctrl + Y", "Ctrl + X"], correct: 1 },
-            { q: "لتحديد عناصر غير متجورة (متباعدة) في مجلد، نضغط باستمرار أثناء النقر على مفتاح:", opts: ["Shift", "Alt", "Ctrl", "Tab"], correct: 2 },
-            { q: "الاختصار Ctrl + A يُستخدم لتحديد كافة النصوص أو العناصر في الصفحات والمستندات.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "التنقل السريع المباشر بين النوافذ المفتوحة يتم عن طريق ضغط Alt + Tab.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "لجعل النص المحدد عريضاً ومظللاً (Bold) في برنامج وورد نستخدم الاختصار:", opts: ["Ctrl + B", "Ctrl + I", "Ctrl + U", "Ctrl + E"], correct: 0 },
-            { q: "محاذاة النص في منتصف الصفحة في برنامج وورد تتم باستخدام الاختصار:", opts: ["Ctrl + R", "Ctrl + L", "Ctrl + E", "Ctrl + M"], correct: 2 },
-            { q: "الاختصار Ctrl + U يضع خطاً تحت النص المحدد.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "حجم الخط القياسي المعتمد لنصوص الفقرات في الأبحاث والتقارير الأكاديمية هو:", opts: ["10", "14", "22", "36"], correct: 1 },
-            { q: "إدراج جدول جديد في مستند وورد يتم من خلال تبويب:", opts: ["الصفحة الرئيسية", "إدراج (Insert)", "تصميم", "عرض"], correct: 1 },
-            { q: "لتمكين تحريك الصورة بحرية فوق النصوص وفي أي مكان في المستند، نختار التفاف النص:", opts: ["مضمون مع النص", "مشدود (Tight)", "أعلى وأسفل", "بلا التفاف"], correct: 1 },
-            { q: "يمكن تعديل أنماط وألوان الجدول في وورد من تبويب 'تصميم الجدول' بعد تحديده.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "محاذاة النص داخل خلايا الجدول في المنتصف العمودي والأفقي تماماً تتم عبر 'محاذاة الخلية'.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "لإنشاء فهرس محتويات آلي (Table of Contents) في وورد يجب أولاً تطبيق:", opts: ["تغيير لون الخط", "أنماط العناوين (Heading 1, Heading 2)", "إدراج صورة", "تغيير الهوامش"], correct: 1 },
-            { q: "إدراج صفحة غلاف جاهزة ومصممة للمستند يتم من قائمة إدراج ثم اختيار 'صفحة غلاف'.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "الانتقال فوراً لصفحة جديدة وإنشاء فاصل صفحات يتم بواسطة الاختصار Ctrl + Enter.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "بعد إضافة عناوين جديدة بالمستند، يتحدث الفهرس التلقائي عبر الضغط الأيمن ثم 'تحديث الحقل'.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "تتكون ورقة العمل في إكسل من صفوف وأعمدة، ويُرمز للأعمدة بالأحرف الإنجليزية (A, B, C...).", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "الخلية الناتجة عن تقاطع العمود B مع الصف 5 تُسمى في إكسل:", opts: ["5B", "B5", "B-5", "CELL_5"], correct: 1 },
-            { q: "لدمج عدة خلايا في إكسل وجعل النص في المنتصف نستخدم أمر 'دمج وتوسيط'.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "خيار 'التفاف النص' (Wrap Text) في إكسل يسمح بعرض النص الطويل في أسطر متعددة داخل نفس الخلية.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "أي دالة أو صيغة حسابية في برنامج إكسل يجب أن تبدأ دائماً برمز:", opts: ["#", "$", "=", "@"], correct: 2 },
-            { q: "الدالة الحسابية المخصصة لحساب مجموع القيم في نطاق من الخلايا هي:", opts: ["=AVERAGE", "=COUNT", "=SUM", "=MAX"], correct: 2 },
-            { q: "الدالة =AVERAGE(A1:A10) تقوم بحساب المتوسط الحسابي للقيم المحددة.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "تستخرج الدالة =MAX أعلى قيمة رقمية، بينما الدالة =MIN تستخرج أقل قيمة.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "الدالة الشرطية المستخدمة لاتخاذ القرار واختبار الشروط في إكسل هي:", opts: ["=IF", "=SUMIF", "=COUNTIF", "=VLOOKUP"], correct: 0 },
-            { q: "الصيغة الصحيحة لكتابة دالة IF لإظهار 'ناجح' إذا كانت القيمة أكبر من أو تساوي 50 هي:", opts: ["=IF(A1>=50, \"ناجح\", \"راسب\")", "=IF A1>=50 THEN \"ناجح\"", "=IF(A1=50: \"ناجح\")", "=IF(ناجح, راسب, A1>=50)"], correct: 0 },
-            { q: "تتكون دالة IF الشرطية في إكسل من 3 أجزاء: الشرط، قيمة التحقق، وقيمة عدم التحقق.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "يجب وضع النصوص المكتوبة داخل معاملات الدوال في إكسل بين علامتي تنصيص مزدوجة \" \".", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "تلوين الخلايا تلقائياً بناءً على قيمتها (مثل تلوين الدرجات القليلة بالأحمر) يُسمى التنسيق الشرطي.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "تحويل الأرقام إلى رسومات بيانية مرئية في إكسل يتم من تبويب إدراج ثم اختيار المخططات.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "يُستخدم المخطط الشريطي (Column Chart) لمقارنة القيم والبيانات بصرياً بين العناصر.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "التنسيق الشرطي يقوم بحذف البيانات المخزنة في الخلايا إذا كانت غير مطابقة.", opts: ["صح", "خطأ"], correct: 1 },
-            { q: "إضافة شريحة جديدة في عرض مايكروسوفت باوربوينت تتم باستخدام الاختصار:", opts: ["Ctrl + N", "Ctrl + M", "Ctrl + S", "Ctrl + P"], correct: 1 },
-            { q: "لبدء عرض الشرائح من الشريحة الأولى على كامل الشاشة نضغط على مفتاح:", opts: ["F1", "F5", "F12", "Esc"], correct: 1 },
-            { q: "بدء عرض الشرائح التقديمية من الشريحة الحالية يتم بالضغط على Shift + F5.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "تنص قاعدة 6×6 في باوربوينت على عدم وضع أكثر من 6 أسطر في الشريحة تجنباً للازدحام.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "المؤثرات البصرية التي تظهر أثناء الانتقال من شريحة إلى شريحة أخرى تُسمى الانتقالات (Transitions).", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "تحريك النصوص والصور والأشكال داخل الشريحة نفسها يسمى حركات (Animations).", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "خيارات التأثير (Effect Options) تسمح بتعديل اتجاه وزاوية الحركة في باوربوينت.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "يُفضل استخدام حركات ومؤثرات كثيرة ومعقدة جداً في العروض الأكاديمية الرسمية.", opts: ["صح", "خطأ"], correct: 1 },
-            { q: "للبحث في محرك البحث جوجل عن ملفات بصيغة PDF فقط نكتب الموجه المتقدم:", opts: ["type=pdf", "filetype:pdf", ".pdf search", "pdf:all"], correct: 1 },
-            { q: "محرك البحث الأكاديمي المخصص من جوجل للوصول للأبحاث والمقالات العلمية المعتمدة هو:", opts: ["Google Images", "Google Scholar", "Google News", "Google Books"], correct: 1 },
-            { q: "لحفظ المستند بصيغة PDF غير قابلة للتعديل نضغط F12 للفظ باسم ونختار النوع PDF.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "صيغة الملفات PDF تحافظ على تنسيق الخطوط والصور والمستند كما هو في كافة الأجهزة.", opts: ["صح", "خطأ"], correct: 0 },
-            { q: "محرك البحث العلمي Google Scholar مخصص للبحث عن الأغاني والمقاطع المرئية الترفيهية.", opts: ["صح", "خطأ"], correct: 1 },
-            { q: "الاختصار Ctrl + Shift + N أنشأ مجلداً جديداً في نظام التشغيل وورد وإكسل.", opts: ["صح", "خطأ"], correct: 0 }
-        ];
-
-        // العناصر
+        // إنشاء أزرار القائمة الجانبية
         const buttonsList = document.getElementById('buttonsList');
-        const welcomeMsg = document.getElementById('welcomeMsg');
-        const lessonContent = document.getElementById('lessonContent');
-        const examContent = document.getElementById('examContent');
-        const codeBlock = document.getElementById('codeBlock');
-        const explanationBlock = document.getElementById('explanationBlock');
-
-        // عناصر الاختبار
-        const examStartBox = document.getElementById('examStartBox');
-        const examQuestionBox = document.getElementById('examQuestionBox');
-        const examResultBox = document.getElementById('examResultBox');
-        const studentNameInput = document.getElementById('studentNameInput');
-        const questionProgress = document.getElementById('questionProgress');
-        const questionText = document.getElementById('questionText');
-        const optionsContainer = document.getElementById('optionsContainer');
-
-        let currentCode = "";
-        let studentName = "";
-        let currentQuestionIdx = 0;
-        let correctAnswersCount = 0;
-        let wrongAnswersCount = 0;
-
-        // توليد أزرار الفهرس
-        for (const key in lessons) {
+        for (const [key, lesson] of Object.entries(lessons)) {
             const btn = document.createElement('button');
             btn.className = 'lesson-btn';
-            btn.textContent = lessons[key].title;
+            btn.textContent = lesson.title;
             btn.onclick = () => showLesson(key, btn);
             buttonsList.appendChild(btn);
         }
 
+        // إظهار محتوى الدرس
         function showLesson(lessonKey, btnElement) {
+            // إخفاء كل شيء آخر
+            document.getElementById('welcomeMsg').style.display = 'none';
+            document.getElementById('examContent').style.display = 'none';
+            document.getElementById('lessonContent').style.display = 'block';
+
+            // تفعيل الزر
             document.querySelectorAll('.lesson-btn').forEach(b => b.classList.remove('active'));
             btnElement.classList.add('active');
 
-            welcomeMsg.style.display = 'none';
-            examContent.style.display = 'none';
-            lessonContent.style.display = 'block';
-
-            currentCode = lessons[lessonKey].code;
-            codeBlock.textContent = currentCode;
-            explanationBlock.innerHTML = lessons[lessonKey].explanation;
+            // تعبئة البيانات
+            document.getElementById('codeBlock').textContent = lessons[lessonKey].code;
+            document.getElementById('explanationBlock').innerHTML = lessons[lessonKey].explanation;
         }
 
+        // نسخ الكود
         function copyCode() {
-            navigator.clipboard.writeText(currentCode).then(() => {
-                const btn = document.querySelector('.copy-btn');
-                const originalText = btn.textContent;
-                btn.textContent = '✔️ تم نسخ الاختصارات';
-                btn.style.background = 'linear-gradient(135deg, #1d4ed8, #2563eb)';
-                
+            const codeText = document.getElementById('codeBlock').textContent;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const copyBtn = document.querySelector('.copy-btn');
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = '✅ تم النسخ!';
+                copyBtn.style.background = '#15803d';
                 setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.background = 'linear-gradient(135deg, #0f2b5c 0%, #1d4ed8 50%, #256
+                    copyBtn.textContent = originalText;
+                    copyBtn.style.background = '';
+                }, 2000);
+            });
+        }
+
+        // --- منطق الاختبار النهائي ---
+        const examQuestions = [
+            { q: "ما هو الاختصار المستخدم لنسخ النص المحدد في نظام الويندوز؟", options: ["Ctrl + C", "Ctrl + V", "Ctrl + X", "Ctrl + Z"], answer: 0 },
+            { q: "ما هو الاختصار الصحيح لإنشاء مجلد جديد؟", options: ["Ctrl + N", "Alt + F4", "Ctrl + Shift + N", "Shift + Delete"], answer: 2 },
+            { q: "ما هو الامتداد الخاص بملفات برنامج مايكروسوفت وورد؟", options: [".pptx", ".xlsx", ".pdf", ".docx"], answer: 3 },
+            { q: "أي الدالات التالية تستخدم لجمع مجموعة من الأرقام في الإكسل؟", options: ["=MAX()", "=SUM()", "=AVERAGE()", "=MIN()"], answer: 1 },
+            { q: "لحذف ملف نهائياً دون نقله لسلة المهملات نستخدم الاختصار:", options: ["Delete فقط", "Shift + Delete", "Ctrl + Delete", "Backspace"], answer: 1 },
+            { q: "لتحديد جميع العناصر والنصوص في مستند دفعة واحدة نستخدم الاختصار:", options: ["Ctrl + A", "Ctrl + B", "Shift + A", "Alt + Tab"], answer: 0 },
+            { q: "لجعل الخط عريضاً ومظللاً (Bold) في برنامج الوورد نستخدم الاختصار:", options: ["Ctrl + U", "Ctrl + I", "Ctrl + B", "Ctrl + E"], answer: 2 },
+            { q: "ما هي الأداة المستخدمة في إكسل لعرض النص الطويل داخل نفس الخلية دون تداخله مع الخلايا الأخرى؟", options: ["دمج وتوسيط", "التفاف النص (Wrap Text)", "تنسيق شرطي", "الفرز والتصفية"], answer: 1 },
+            { q: "لبدء عرض الشرائح في الباوربوينت من الشريحة الأولى نضغط على مفتاح:", options: ["F5", "Shift + F5", "F2", "Esc"], answer: 0 },
+            { q: "في برنامج إكسل، الدالة المنطقية التي تقوم بالفحص وإرجاع قيمة إذا تحقق الشرط وقيمة أخرى إذا لم يتحقق هي:", options: ["=COUNT()", "=MAX()", "=SUM()", "=IF()"], answer: 3 }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let studentName = "";
+
+        function showExamInterface() {
+            document.getElementById('welcomeMsg').style.display = 'none';
+            document.getElementById('lessonContent').style.display = 'none';
+            document.getElementById('examContent').style.display = 'block';
+            
+            document.getElementById('examStartBox').style.display = 'block';
+            document.getElementById('examQuestionBox').style.display = 'none';
+            document.getElementById('examResultBox').style.display = 'none';
+
+            document.querySelectorAll('.lesson-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.exam-sidebar-btn').classList.add('active');
+        }
+
+        function startExam() {
+            const nameInput = document.getElementById('studentNameInput').value.trim();
+            if (nameInput === "") {
+                alert("الرجاء إدخال اسمك الثلاثي للبدء في الاختبار.");
+                return;
+            }
+            studentName = nameInput;
+            currentQuestionIndex = 0;
+            score = 0;
+            
+            document.getElementById('examStartBox').style.display = 'none';
+            document.getElementById('examQuestionBox').style.display = 'block';
+            
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            if (currentQuestionIndex >= examQuestions.length) {
+                showResult();
+                return;
+            }
+
+            const qData = examQuestions[currentQuestionIndex];
+            document.getElementById('questionProgress').textContent = `السؤال ${currentQuestionIndex + 1} من ${examQuestions.length}`;
+            document.getElementById('questionText').innerHTML = `<b>س:</b> ${qData.q}`;
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            qData.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'exam-option-btn';
+                btn.innerHTML = `<span>${opt}</span> <span style="color:#cbd5e1; font-size:0.8rem;">👈</span>`;
+                btn.onclick = () => checkAnswer(index, qData.answer);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(selectedIndex, correctIndex) {
+            if (selectedIndex === correctIndex) {
+                score++;
+            }
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+
+        function showResult() {
+            document.getElementById('examQuestionBox').style.display = 'none';
+            document.getElementById('examResultBox').style.display = 'block';
+            
+            document.getElementById('displayStudentName').textContent = `الاسم: ${studentName}`;
+            
+            const correctCount = score;
+            const wrongCount = examQuestions.length - score;
+            const markPerQuestion = 100 / examQuestions.length;
+            const finalScore = score * markPerQuestion;
+
+            document.getElementById('displayCorrectCount').innerHTML = `✅ الإجابات الصحيحة: ${correctCount}`;
+            document.getElementById('displayWrongCount').innerHTML = `❌ الإجابات الخاطئة: ${wrongCount}`;
+            document.getElementById('displayFinalScore').textContent = `الدرجة النهائية: ${finalScore.toFixed(0)} / 100`;
+        }
+
+        function resetExamToStart() {
+            document.getElementById('studentNameInput').value = '';
+            showExamInterface();
+        }
+    </script>
+</body>
+</html>
