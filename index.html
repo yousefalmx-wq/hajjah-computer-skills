@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المكتبة الملكية الشاملة لمهارات الحاسوب</title>
     
-    <!-- استدعاء الخطوط العربية الأصيلة -->
+    <!-- الخطوط العربية -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* المتغيرات اللونية والهوية البصرية */
+        /* التنسيق الذهبي الملكي المقتبس من الصورة المرجعية */
         :root {
-            --royal-blue: #0f2b5c;
-            --light-blue: #e8f0fe;
-            --border-blue: #8ab4f8;
-            --dark-bg: #051024;
-            --text-dark: #333;
-            --bg-color: #f8fbff;
+            --gold-primary: #d4af37;     /* لون ذهبي أساسي */
+            --gold-light: #f9f5e8;       /* بيج فاتح للخلفيات */
+            --gold-border: #e6c875;      /* ذهبي للحدود */
+            --gold-hover: #c59b27;       /* ذهبي داكن للتحويم */
+            --dark-bg: #121212;          /* أسود لصندوق الأكواد */
+            --text-main: #333333;        /* لون النص الأساسي */
+            --text-muted: #555555;
+            --bg-page: #faf8f2;          /* لون خلفية الصفحة */
         }
 
         * {
@@ -27,80 +29,82 @@
 
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: var(--bg-color);
-            /* خلفية دوتس شبكية أنيقة */
-            background-image: radial-gradient(#aecbf6 1px, transparent 1px);
+            background-color: var(--bg-page);
+            background-image: radial-gradient(var(--gold-border) 1px, transparent 1px);
             background-size: 20px 20px;
-            color: var(--text-dark);
-            line-height: 1.6;
+            color: var(--text-main);
+            line-height: 1.8;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1250px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* تنسيق البانر التكريمي الملكي العلوي */
+        /* البانر العلوي (الذهبي) */
         .royal-banner {
             background-color: #ffffff;
-            border: 2px solid var(--border-blue);
+            border: 2px solid var(--gold-border);
             border-radius: 12px;
             padding: 25px 20px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(15, 43, 92, 0.08);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1);
             margin-bottom: 30px;
         }
 
         .royal-banner h1 {
             font-family: 'Amiri', serif;
-            color: var(--royal-blue);
-            font-size: 2.2rem;
+            color: var(--gold-primary);
+            font-size: 2.4rem;
             margin-bottom: 15px;
         }
 
         .credits {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
+            color: #444;
         }
 
         .subtitle {
-            color: var(--royal-blue);
+            color: var(--gold-hover);
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
 
-        /* التخطيط العام: قائمة جانبية ومحتوى */
+        /* التخطيط */
         .layout {
             display: flex;
             gap: 25px;
             align-items: flex-start;
         }
 
-        /* القائمة الجانبية (فهرس المهارات) */
+        /* الفهرس (القائمة الجانبية) */
         .sidebar {
-            flex: 0 0 300px;
+            flex: 0 0 280px;
             background: #ffffff;
-            border: 1px solid var(--border-blue);
+            border: 2px solid var(--gold-border);
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 4px 15px rgba(15, 43, 92, 0.05);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.08);
             position: sticky;
             top: 20px;
+            height: calc(100vh - 40px);
+            overflow-y: auto; /* للسماح بالتمرير إذا كثرت الأزرار */
         }
 
         .sidebar-title {
             font-family: 'Amiri', serif;
-            color: var(--royal-blue);
+            color: var(--gold-primary);
             text-align: center;
             font-size: 1.5rem;
             margin-bottom: 20px;
-            border-bottom: 2px dashed var(--border-blue);
+            border-bottom: 2px dashed var(--gold-border);
             padding-bottom: 10px;
         }
 
@@ -111,84 +115,95 @@
             padding: 12px 15px;
             margin-bottom: 10px;
             background: #ffffff;
-            border: 1px solid #d1e1fb;
+            border: 1px solid var(--gold-border);
             border-radius: 8px;
             font-family: 'Cairo', sans-serif;
             font-weight: 600;
             font-size: 0.95rem;
-            color: var(--royal-blue);
+            color: var(--text-main);
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .lesson-btn:hover, .lesson-btn.active {
-            background: var(--light-blue);
-            border-color: var(--border-blue);
+            background: var(--gold-light);
+            border-color: var(--gold-primary);
+            color: var(--gold-hover);
             transform: translateX(-5px);
+            box-shadow: inset 3px 0 0 var(--gold-primary); /* خط جانبي عند التحديد */
         }
 
         .exam-btn {
-            background: linear-gradient(135deg, var(--royal-blue), #1a4999);
+            background: linear-gradient(135deg, var(--gold-primary), #b5922b);
             color: white;
             border: none;
             margin-top: 20px;
             text-align: center;
+            font-size: 1.1rem;
+            padding: 15px;
         }
         
         .exam-btn:hover {
-            background: linear-gradient(135deg, #1a4999, var(--royal-blue));
+            background: linear-gradient(135deg, #b5922b, var(--gold-primary));
             color: white;
             transform: scale(1.02);
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
         }
 
-        /* منطقة عرض الدروس */
+        /* المحتوى الرئيسي */
         .content-area {
             flex: 1;
+            min-width: 0; /* لمنع التمدد الزائد */
         }
 
         /* صندوق الترحيب */
         .welcome-box {
             background: #ffffff;
-            border: 2px dashed var(--border-blue);
+            border: 2px dashed var(--gold-border);
             border-radius: 12px;
-            padding: 40px;
+            padding: 50px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(15, 43, 92, 0.05);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.05);
         }
 
         .welcome-box h2 {
             font-family: 'Amiri', serif;
-            color: var(--royal-blue);
-            margin-bottom: 15px;
+            color: var(--gold-primary);
+            margin-bottom: 20px;
+            font-size: 2rem;
         }
 
-        /* صندوق الاختصارات (الداكن) */
+        /* صندوق الاختصارات (أسود أنيق كما في الصورة) */
         .cheat-sheet-box {
             background-color: var(--dark-bg);
-            color: #ffffff;
+            color: #e0e0e0;
             border-radius: 12px;
             padding: 25px;
-            margin-bottom: 25px;
-            border: 2px solid #1a3f85;
+            margin-bottom: 30px;
+            border: 1px solid #333;
             position: relative;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            direction: ltr; /* اتجاه اليسار لليمين للأكواد */
+            text-align: left;
         }
 
         .cheat-sheet-title {
             font-family: 'Amiri', serif;
-            color: #ffffff;
-            border-bottom: 1px solid #2a4d94;
+            color: var(--gold-primary);
+            border-bottom: 1px solid #333;
             padding-bottom: 15px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            text-align: right; /* العنوان بالعربي لليمين */
+            direction: rtl;
         }
 
         .copy-btn {
             position: absolute;
             top: 20px;
-            left: 20px;
+            right: 20px; /* تم النقل لليمين لأن المحتوى LTR */
             background: transparent;
-            border: 1px solid #4a7ae6;
-            color: #4a7ae6;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
             padding: 6px 15px;
             border-radius: 6px;
             cursor: pointer;
@@ -197,67 +212,113 @@
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
         }
 
         .copy-btn:hover {
-            background: #4a7ae6;
-            color: #ffffff;
+            background: var(--gold-primary);
+            color: var(--dark-bg);
         }
 
         .code-list {
             list-style: none;
-            font-family: monospace;
+            font-family: 'Consolas', 'Courier New', monospace;
             font-size: 1.1rem;
+            line-height: 2;
         }
 
         .code-list li {
             margin-bottom: 10px;
             display: flex;
+            align-items: center;
         }
 
         .code-key {
-            color: #8ab4f8;
-            width: 180px;
+            color: var(--gold-primary);
+            width: 200px;
             font-weight: bold;
+            display: inline-block;
+        }
+        
+        .code-desc {
+            color: #aaaaaa;
+            direction: rtl; /* الوصف بالعربي */
+            text-align: right;
+            flex: 1;
         }
 
-        /* صندوق الشرح المكثف */
+        /* صندوق الشرح المكثف (التفصيل الممل) */
         .explanation-box {
             background: #ffffff;
-            border: 1px solid var(--border-blue);
+            border: 1px solid var(--gold-border);
             border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(15, 43, 92, 0.05);
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.05);
         }
 
         .explanation-box h3 {
             font-family: 'Amiri', serif;
-            color: var(--royal-blue);
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-            border-bottom: 1px dashed var(--border-blue);
-            padding-bottom: 10px;
+            color: var(--gold-primary);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--gold-light);
+            padding-bottom: 15px;
         }
 
         .explanation-content h4 {
-            color: var(--royal-blue);
-            margin-top: 15px;
-            margin-bottom: 10px;
+            color: var(--gold-hover);
+            font-size: 1.3rem;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            background: var(--gold-light);
+            padding: 10px 15px;
+            border-right: 4px solid var(--gold-primary);
+            border-radius: 4px;
         }
 
         .explanation-content p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-align: justify;
+            font-size: 1.1rem;
+            color: #444;
         }
 
-        /* للتوافق مع الهواتف الذكية */
-        @media (max-width: 900px) {
+        .example-box {
+            background: #fdfaf0;
+            border: 1px dashed var(--gold-primary);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        
+        .example-box strong {
+            color: var(--gold-hover);
+        }
+
+        /* تنسيق شاشة الاختبار */
+        .exam-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid var(--gold-border);
+        }
+
+        .question-card {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: var(--gold-light);
+            border-radius: 8px;
+        }
+
+        /* التجاوب مع الهواتف */
+        @media (max-width: 950px) {
             .layout {
                 flex-direction: column;
             }
             .sidebar {
                 width: 100%;
+                height: auto;
                 position: static;
             }
         }
@@ -266,121 +327,184 @@
 <body>
 
     <div class="container">
-        <!-- البانر الملكي العلوي -->
+        <!-- البانر الملكي (تنسيق ذهبي) -->
         <header class="royal-banner">
             <h1>👑 المكتبة الملكية الشاملة لمهارات الحاسوب</h1>
             <div class="credits">
-                <span>إعداد: المهندس / يوسف وليد المروني 💫</span>
-                <span>|</span>
-                <span>إشراف: الدكتور / حسن العليي 👑</span>
+                <span>تم إعداد هذا الموقع من قبل المهندس / يوسف وليد المروني 💫</span>
+            </div>
+            <div class="credits" style="font-size: 1rem; margin-top: -10px;">
+                <span>تحت إشراف الدكتور / حسن العليي 👑</span>
             </div>
             <div class="subtitle">
-                🔹 مرجع تطبيقات الحاسوب والمهارات المكتبية والاختبار النهائي 🔹
+                🔹 مرجع طلاب الذكاء الاصطناعي والأمن السيبراني 🔹
             </div>
         </header>
 
         <div class="layout">
-            <!-- القائمة الجانبية -->
+            <!-- الفهرس الجانبي (12 درساً) -->
             <aside class="sidebar">
-                <h2 class="sidebar-title">فهرس المهارات 👑</h2>
-                <button class="lesson-btn" onclick="showContent('welcome')">🏠 الصفحة الرئيسية</button>
-                <button class="lesson-btn" onclick="showContent('lesson1')">1. أساسيات Windows والملفات</button>
-                <button class="lesson-btn">2. الاختصارات والتحديد السريع</button>
-                <button class="lesson-btn">3. وورد: تنسيق النصوص والخطوط</button>
-                <button class="lesson-btn">4. وورد: الجداول والصور</button>
-                <button class="lesson-btn">5. وورد: الغلاف والفهرس الآلي</button>
-                <!-- يمكن إضافة بقية الأزرار هنا -->
+                <h2 class="sidebar-title">الفهرس المرجعي 👑</h2>
+                <button class="lesson-btn active" onclick="showContent('welcome', this)">🏠 الصفحة الرئيسية</button>
                 
-                <button class="lesson-btn exam-btn">📝 الاختبار النهائي الشامل</button>
+                <h3 style="font-size: 1rem; color: #777; margin: 15px 10px 5px; border-bottom: 1px solid #eee; padding-bottom: 5px;">مرحلة التأسيس</h3>
+                <button class="lesson-btn" onclick="showContent('lesson1', this)">1. مفاهيم نظام التشغيل وإدارة الملفات</button>
+                <button class="lesson-btn" onclick="showContent('lesson2', this)">2. أسرار لوحة المفاتيح والتحديد السريع</button>
+                
+                <h3 style="font-size: 1rem; color: #777; margin: 15px 10px 5px; border-bottom: 1px solid #eee; padding-bottom: 5px;">احتراف مايكروسوفت وورد</h3>
+                <button class="lesson-btn" onclick="showContent('lesson3', this)">3. المعايير الأكاديمية لتنسيق النصوص</button>
+                <button class="lesson-btn" onclick="showContent('lesson4', this)">4. هندسة الجداول والتحكم بالصور</button>
+                <button class="lesson-btn" onclick="showContent('lesson5', this)">5. أتمتة الفهارس وتصميم الأغلفة</button>
+                
+                <h3 style="font-size: 1rem; color: #777; margin: 15px 10px 5px; border-bottom: 1px solid #eee; padding-bottom: 5px;">قوة مايكروسوفت إكسل</h3>
+                <button class="lesson-btn" onclick="showContent('lesson6', this)">6. هيكلة الخلايا وتنسيق الجداول</button>
+                <button class="lesson-btn" onclick="showContent('lesson7', this)">7. الدوال الرياضية والإحصائية الأساسية</button>
+                <button class="lesson-btn" onclick="showContent('lesson8', this)">8. منطق اتخاذ القرار: الدالة الشرطية IF</button>
+                <button class="lesson-btn" onclick="showContent('lesson9', this)">9. التنسيق الشرطي والمخططات البيانية</button>
+                
+                <h3 style="font-size: 1rem; color: #777; margin: 15px 10px 5px; border-bottom: 1px solid #eee; padding-bottom: 5px;">العروض والبحث الأكاديمي</h3>
+                <button class="lesson-btn" onclick="showContent('lesson10', this)">10. تصميم العروض التقديمية (PowerPoint)</button>
+                <button class="lesson-btn" onclick="showContent('lesson11', this)">11. ديناميكية العرض: الحركات والانتقالات</button>
+                <button class="lesson-btn" onclick="showContent('lesson12', this)">12. تقنيات البحث الأكاديمي المتقدم</button>
+                
+                <button class="lesson-btn exam-btn" onclick="showContent('exam', this)">📝 الاختبار النهائي الشامل</button>
             </aside>
 
-            <!-- منطقة المحتوى الديناميكية -->
+            <!-- منطقة المحتوى -->
             <main class="content-area" id="main-content">
                 
-                <!-- شاشة الترحيب (الافتراضية) -->
+                <!-- شاشة الترحيب -->
                 <div id="welcome-view" class="welcome-box">
-                    <h2>أهلاً بكم في الدليل التطبيقي الشامل والاحترافي لمهارات الحاسوب 👑</h2>
-                    <p>👈 اختر درساً من الفهرس الجانبي لقراءة الشرح المكثف والمفصل مع الأمثلة الواقعية، أو اضغط على <strong>اختبار نهائي</strong> للتقييم.</p>
+                    <h2>أهلاً بكم في الدليل التطبيقي الشامل 👑</h2>
+                    <p style="font-size: 1.2rem; color: #555;">هذا الدليل مصمم ليأخذ بيدك خطوة بخطوة، من البدايات البسيطة وحتى مستوى الاحتراف الأكاديمي.</p>
+                    <p style="margin-top: 20px;">👈 اختر درساً من الفهرس الجانبي لتبدأ رحلة التعلم مع الشرح المفصل والأمثلة الواقعية.</p>
                 </div>
 
-                <!-- الدرس الأول (مخفي افتراضياً) -->
+                <!-- الدرس الأول -->
                 <div id="lesson1-view" style="display: none;">
                     
-                    <!-- صندوق الاختصارات -->
+                    <!-- صندوق الاختصارات (كما في الصورة) -->
                     <div class="cheat-sheet-box">
-                        <h3 class="cheat-sheet-title">👑 الاختصارات والخطوات السريعة (Cheat Sheet)</h3>
-                        <button class="copy-btn" onclick="copyCheatSheet()">
-                            <span>✨</span> نسخ الاختصارات
+                        <button class="copy-btn" onclick="copyCheatSheet('code-list-1', this)">
+                            <span>✨</span> نسخ الكود جاهزاً
                         </button>
-                        <ul class="code-list" id="code-content">
-                            <li><span class="code-key">Ctrl + Shift + N</span> : إنشاء مجلد جديد</li>
-                            <li><span class="code-key">F2</span> : إعادة تسمية المجلد/الملف</li>
-                            <li><span class="code-key">Delete</span> : نقل إلى سلة المهملات</li>
-                            <li><span class="code-key">Shift + Delete</span> : حذف نهائي دون سلة المهملات</li>
-                            <li><span class="code-key">Alt + Tab</span> : التنقل السريع بين النوافذ</li>
+                        <h3 class="cheat-sheet-title">Computer Skills Shortcuts 👑</h3>
+                        <ul class="code-list" id="code-list-1">
+                            <li><span class="code-key">Ctrl + Shift + N</span> <span class="code-desc">// إنشاء مجلد جديد (New Folder)</span></li>
+                            <li><span class="code-key">F2</span> <span class="code-desc">// إعادة تسمية الملف المحدد (Rename)</span></li>
+                            <li><span class="code-key">Delete</span> <span class="code-desc">// إرسال الملف إلى سلة المهملات</span></li>
+                            <li><span class="code-key">Shift + Delete</span> <span class="code-desc">// الحذف النهائي المباشر (احذر من هذا)</span></li>
+                            <li><span class="code-key">Alt + Tab</span> <span class="code-desc">// التنقل السريع بين النوافذ المفتوحة</span></li>
+                            <li><span class="code-key">Windows + D</span> <span class="code-desc">// تصغير كل النوافذ والذهاب لسطح المكتب</span></li>
                         </ul>
                     </div>
 
-                    <!-- صندوق الشرح المكثف -->
+                    <!-- الشرح التفصيلي الممل والمبسط -->
                     <div class="explanation-box">
-                        <h3>📜 الشرح المكثف والعميق لإدارة نظام Windows والملفات:</h3>
+                        <h3>📜 الدرس الأول: مفاهيم نظام التشغيل وإدارة الملفات (بالتفصيل)</h3>
+                        
                         <div class="explanation-content">
-                            <h4>مقدمة شمولية في نظام التشغيل:</h4>
-                            <p>نظام التشغيل (Windows) هو بمثابة "العقل المدبر والإدارة العامة" للكمبيوتر؛ فهو الوسيط الحيوي الذي يترجم أوامرك إلى لغة تفهمها القطع الإلكترونية الداخلية (Hardware). بدون نظام التشغيل، تصبح أجهزة الكمبيوتر مجرد شاشات وأسلاك بلا فائدة.</p>
+                            <h4>1. ما هو نظام التشغيل (OS) ولماذا هو الأهم؟</h4>
+                            <p>تخيل أن لديك شركة ضخمة مليئة بالموظفين (الموظفين هنا هم قطع الكمبيوتر: المعالج، الرام، الشاشة، لوحة المفاتيح). هؤلاء الموظفين لا يتحدثون لغتك، ولا يعرفون ماذا يفعلون. هنا يأتي دور <strong>"المدير العام"</strong> للشركة، وهو "نظام التشغيل" (مثل Windows).</p>
+                            <p>نظام التشغيل هو البرنامج الأساسي الذي يترجم أوامرك البشرية (مثل ضغطة زر الماوس) إلى إشارات كهربائية تفهمها القطع، ليقوم بتنفيذ طلبك. بدون نظام تشغيل، حاسوبك مجرد حديد وبلاستيك لا فائدة منه.</p>
                             
-                            <h4>إدارة الملفات والمجلدات:</h4>
-                            <p>للحفاظ على بيئة عمل منظمة، يجب ترتيب البيانات داخل "مجلدات". استخدام الاختصار <strong>Ctrl + Shift + N</strong> يوفر الوقت بشكل كبير لإنشاء مجلدات جديدة. ولتعديل اسم أي ملف بسرعة نحدد الملف ونضغط <strong>F2</strong>.</p>
+                            <div class="example-box">
+                                <strong>💡 مثال من الحياة الواقعية:</strong> إذا ذهبت إلى مطعم، أنت لا تدخل المطبخ لتخبر الطباخ كيف يطبخ. أنت تعطي طلبك لـ <strong>"النادِل" (الجرسون)</strong>، وهو يوصل الطلب للمطبخ ويحضر لك الطعام. نظام التشغيل (Windows) هو النادل بينك وبين قطع الكمبيوتر!
+                            </div>
+
+                            <h4>2. فن التنظيم: لماذا نحتاج المجلدات (Folders)؟</h4>
+                            <p>المجلد (Folder) هو ببساطة عبارة عن "حاوية" أو "درج" نضع فيه ملفاتنا. الكمبيوتر بدون مجلدات يشبه غرفه نوم تم رمي كل الملابس والأحذية والأوراق فيها على الأرض بشكل عشوائي! تخيل كم سيستغرقك الوقت لتجد ورقة مهمة؟</p>
+                            <p>لذلك، الخطوة الأولى في الاحتراف هي التنظيم. لإنشاء مجلد جديد بسرعة، لا تضغط (زر يمين > New > Folder)، فهذه طريقة المبتدئين. الطريقة الاحترافية هي استخدام الثلاثة أزرار معاً: <strong>Ctrl + Shift + N</strong>.</p>
                             
-                            <h4>الفرق بين الحذف المؤقت والنهائي:</h4>
-                            <p>عند استخدام زر <strong>Delete</strong> العادي، يتم نقل الملف إلى سلة المهملات (يمكن استعادته لاحقاً). أما عند استخدام <strong>Shift + Delete</strong>، يتم حذف الملف نهائياً من القرص الصلب ولا يمكن استعادته بسهولة، لذا يجب الحذر عند استخدام هذا الاختصار.</p>
+                            <div class="example-box">
+                                <strong>💡 تطبيق عملي:</strong> كطالب ذكاء اصطناعي، يجب أن تنشئ مجلد رئيسي باسم "الجامعة"، وبداخله مجلد لكل مستوى "المستوى الأول"، وبداخل المستوى الأول مجلدات بأسماء المواد "برمجة C++"، "رياضيات"، إلخ. هذا الترتيب الهرمي يسمى (File System Hierarchy).
+                            </div>
+
+                            <h4>3. الحذف العادي مقابل الحذف النهائي (الخطير)</h4>
+                            <p>عندما تخطئ في كتابة ورقة، فإنك تكرمشها وترميها في "سلة المهملات" الموجودة في غرفتك. إذا اكتشفت لاحقاً أن الورقة مهمة، يمكنك إخراجها من السلة. هذا بالضبط ما يفعله زر <strong>Delete</strong>، فهو ينقل الملف إلى Recycle Bin ويمكنك استعادته (Restore).</p>
+                            <p>أما استخدام <strong>Shift + Delete</strong> فهو يشبه أخذ الورقة ورميها في <strong>"آلة فرم الأوراق" (Shredder)</strong>! لا يوجد تراجع. الملف يختفي من القرص الصلب فوراً ولا يمر بسلة المهملات. نستخدم هذه الطريقة فقط للملفات التي نحن متأكدون 100% أننا لن نحتاجها، أو لحذف الملفات الضخمة جداً لتوفير المساحة.</p>
                         </div>
                     </div>
+                </div>
 
+                <!-- هيكل الاختبار النهائي -->
+                <div id="exam-view" style="display: none;" class="exam-container">
+                    <h2 style="color: var(--gold-primary); text-align: center; font-family: 'Amiri', serif;">📝 الاختبار النهائي الشامل - مهارات الحاسوب</h2>
+                    <p style="text-align: center; margin-bottom: 30px;">أجب عن الأسئلة التالية لاختبار مستواك (سيتم برمجة الـ 50 سؤالاً هنا)</p>
+                    
+                    <div class="question-card">
+                        <h3>س1: إذا أردت حذف ملف بشكل نهائي دون مروره بسلة المهملات، نستخدم الاختصار:</h3>
+                        <br>
+                        <input type="radio" name="q1" id="q1a"> <label for="q1a">Delete</label><br>
+                        <input type="radio" name="q1" id="q1b"> <label for="q1b">Ctrl + Delete</label><br>
+                        <input type="radio" name="q1" id="q1c"> <label for="q1c">Shift + Delete</label><br>
+                        <input type="radio" name="q1" id="q1d"> <label for="q1d">Alt + Delete</label>
+                    </div>
+
+                    <div class="question-card">
+                        <h3>س2: نظام التشغيل (مثل Windows) يعتبر:</h3>
+                        <br>
+                        <input type="radio" name="q2" id="q2a"> <label for="q2a">برنامج لكتابة النصوص وتنسيقها</label><br>
+                        <input type="radio" name="q2" id="q2b"> <label for="q2b">قطعة مادية داخل الحاسوب (Hardware)</label><br>
+                        <input type="radio" name="q2" id="q2c"> <label for="q2c">الوسيط والمدير العام بين المستخدم وقطع الكمبيوتر</label><br>
+                    </div>
+                    
+                    <button class="exam-btn" style="width: 100%; margin-top: 10px;" onclick="alert('سيتم برمجة حساب النتيجة لاحقاً')">تسليم الإجابات وإظهار النتيجة 🏆</button>
                 </div>
 
             </main>
         </div>
     </div>
 
-    <!-- أكواد التفاعل المبرمجة -->
+    <!-- الجافاسكريبت للتحكم بالواجهة -->
     <script>
-        // دالة التنقل بين الدروس
-        function showContent(viewId) {
-            // إخفاء كل المحتويات
-            document.getElementById('welcome-view').style.display = 'none';
-            document.getElementById('lesson1-view').style.display = 'none';
+        // التنقل بين الدروس
+        function showContent(viewId, btnElement) {
+            // إخفاء كل الواجهات
+            const views = document.querySelectorAll('.content-area > div');
+            views.forEach(view => view.style.display = 'none');
             
-            // إظهار المحتوى المطلوب
-            if(viewId === 'welcome') {
-                document.getElementById('welcome-view').style.display = 'block';
-            } else if (viewId === 'lesson1') {
-                document.getElementById('lesson1-view').style.display = 'block';
+            // إزالة اللون (التحديد) من جميع الأزرار
+            const buttons = document.querySelectorAll('.lesson-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // إظهار الواجهة المطلوبة
+            if(document.getElementById(viewId + '-view')) {
+                document.getElementById(viewId + '-view').style.display = 'block';
             }
+
+            // تفعيل الزر المضغوط
+            btnElement.classList.add('active');
+            
+            // التمرير لأعلى الصفحة عند فتح درس جديد (مفيد للموبايل)
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // دالة نسخ الاختصارات
-        function copyCheatSheet() {
-            const codeElements = document.querySelectorAll('#code-content li');
-            let textToCopy = "الاختصارات والخطوات السريعة:\n\n";
+        // دالة نسخ الكود المحدثة
+        function copyCheatSheet(listId, btnElement) {
+            const codeElements = document.querySelectorAll(`#${listId} li`);
+            let textToCopy = "الاختصارات البرمجية:\n\n";
             
             codeElements.forEach(li => {
-                textToCopy += li.innerText + "\n";
+                // استخراج المفتاح والوصف بشكل نظيف
+                const key = li.querySelector('.code-key').innerText;
+                const desc = li.querySelector('.code-desc').innerText;
+                textToCopy += `${key}   ${desc}\n`;
             });
 
             navigator.clipboard.writeText(textToCopy).then(() => {
-                const copyBtn = document.querySelector('.copy-btn');
-                const originalText = copyBtn.innerHTML;
-                copyBtn.innerHTML = "<span>✅</span> تم النسخ بنجاح";
-                copyBtn.style.background = "#4a7ae6";
-                copyBtn.style.color = "#ffffff";
+                const originalText = btnElement.innerHTML;
+                btnElement.innerHTML = "<span>✅</span> تم النسخ";
+                btnElement.style.background = "var(--gold-primary)";
+                btnElement.style.color = "var(--dark-bg)";
                 
                 setTimeout(() => {
-                    copyBtn.innerHTML = originalText;
-                    copyBtn.style.background = "transparent";
-                    copyBtn.style.color = "#4a7ae6";
+                    btnElement.innerHTML = originalText;
+                    btnElement.style.background = "transparent";
+                    btnElement.style.color = "var(--gold-primary)";
                 }, 2000);
             }).catch(err => {
-                alert('فشل في نسخ النص: ', err);
+                alert('فشل النسخ: ' + err);
             });
         }
     </script>
