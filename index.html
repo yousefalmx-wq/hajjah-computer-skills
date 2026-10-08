@@ -627,16 +627,19 @@
     }
 
     // لوحة الإدارة
-    function openAdmin() {
-        const password = prompt("🔒 النظام محمي. أدخل كلمة مرور الإشراف (admin123):");
-        if (password === "admin123") {
-            document.getElementById('login-screen').style.display = 'none';
-            document.getElementById('admin-panel').style.display = 'flex';
-            renderAdminData();
-        } else if (password !== null) {
-            alert("❌ كلمة المرور غير صحيحة. تم رفض الوصول.");
-        }
+  // 1. دالة تسجيل دخول المشرف (تم تعديل النص لإخفاء كلمة السر)
+function adminLogin() {
+    // تم إزالة (admin123) من النص الذي يظهر للمستخدم
+    let password = prompt("النظام محمي. أدخل كلمة مرور الإشراف:");
+    
+    if (password === "admin123") {
+        // إخفاء الواجهة الحالية وإظهار لوحة المشرف
+        // document.getElementById('main-screen').style.display = 'none'; // ألغِ التعليق إذا لزم الأمر
+        showAdminDashboard();
+    } else if (password !== null) {
+        alert("كلمة المرور خاطئة!");
     }
+}
 
     function closeAdmin() {
         document.getElementById('admin-panel').style.display = 'none';
@@ -778,6 +781,83 @@
         adminDatabase.push({ name: currentUser.name, department: currentUser.department, score: finalScore });
         document.querySelector('.main-content').scrollTo({ top: 0, behavior: 'smooth' });
     }
+    // دالة إظهار النتيجة للطالب وحفظها
+function finishTest(correctAnswers, wrongAnswers, totalQuestions) {
+    let percentage = ((correctAnswers / totalQuestions) * 100).toFixed(1);
+
+    document.getElementById('correct-count').innerText = correctAnswers;
+    document.getElementById('wrong-count').innerText = wrongAnswers;
+    document.getElementById('score-percentage').innerText = percentage;
+
+    document.getElementById('student-result-screen').style.display = 'block';
+
+    // *** الملاحظة المهمة جداً في النقطة رقم 3 بالأسفل تخص هذين السطرين ***
+    let studentName = document.getElementById('student-name-input').value || "طالب غير معروف";
+    let studentMajor = document.getElementById('student-major-select').value || "غير محدد";
+
+    saveToAdminDashboard(studentName, studentMajor, percentage);
+}
+
+// دالة الحفظ في الذاكرة
+function saveToAdminDashboard(name, major, score) {
+    let savedResults = JSON.parse(localStorage.getItem('examResults')) || [];
+    savedResults.push({ studentName: name, studentMajor: major, studentScore: score });
+    localStorage.setItem('examResults', JSON.stringify(savedResults));
+}
+
+// دالة عرض جدول المشرفين
+function showAdminDashboard() {
+    document.getElementById('admin-dashboard-screen').style.display = 'block';
+    let tableBody = document.getElementById('admin-results-body');
+    tableBody.innerHTML = ''; 
+    let savedResults = JSON.parse(localStorage.getItem('examResults')) || [];
+    
+    if (savedResults.length === 0) {
+        tableBody.innerHTML = '<tr><td colspan="3">لا توجد نتائج مسجلة حتى الآن</td></tr>';
+    } else {
+        savedResults.forEach(function(result) {
+            let row = `<tr>
+                <td>${result.studentName}</td>
+                <td>${result.studentMajor}</td>
+                <td style="color: ${result.studentScore >= 50 ? '#4CAF50' : '#f44336'};">${result.studentScore}%</td>
+            </tr>`;
+            tableBody.innerHTML += row;
+        });
+    }
+}
+
+// دالة إغلاق جدول المشرفين
+function closeAdminDashboard() {
+    document.getElementById('admin-dashboard-screen').style.display = 'none';
+}
 </script>
+    <!-- واجهة عرض النتيجة للطالب (تكون مخفية افتراضياً) -->
+<div id="student-result-screen" class="hidden-screen">
+    <h2>نتيجتك في الاختبار 📊</h2>
+    <div class="result-details">
+        <p>الإجابات الصحيحة: <span id="correct-count" style="color: #4CAF50; font-weight: bold;">0</span> ✅</p>
+        <p>الإجابات الخاطئة: <span id="wrong-count" style="color: #f44336; font-weight: bold;">0</span> ❌</p>
+        <p>النسبة المئوية: <span id="score-percentage" style="color: #FFC107; font-weight: bold;">0</span>% 🎯</p>
+    </div>
+    <button onclick="location.reload()">إنهاء والعودة للرئيسية</button>
+</div>
+
+<!-- واجهة لوحة الإشراف (تكون مخفية افتراضياً) -->
+<div id="admin-dashboard-screen" class="hidden-screen">
+    <h2>لوحة المشرفين 👑</h2>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>اسم الطالب</th>
+                <th>التخصص الأكاديمي</th>
+                <th>النسبة المئوية</th>
+            </tr>
+        </thead>
+        <tbody id="admin-results-body">
+            <!-- سيتم تعبئة بيانات الطلاب هنا برمجياً -->
+        </tbody>
+    </table>
+    <button onclick="closeAdminDashboard()" style="margin-top: 20px;">تسجيل الخروج</button>
+</div>
 </body>
 </html>
